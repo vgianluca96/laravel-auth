@@ -35,7 +35,11 @@
             @foreach ($projects as $project)
             <tr>
                 <td>
+                    @if(str_contains($project['thumb'],'http'))
                     <img src="{{$project->thumb}}" alt="" width="100">
+                    @else
+                    <img src="{{asset('storage/' . $project->thumb)}}" alt="" width="100">
+                    @endif
                 </td>
                 <td>
                     {{$project->title}}
