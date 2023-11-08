@@ -2,10 +2,25 @@
 
 @section('content')
 
-<div class="container">
-    <h1>
-        All Projects
-    </h1>
+<div class="container py-4">
+    
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <h1>
+                All Projects
+            </h1>
+        </div>
+        <div>
+            <a href="{{route('admin.projects.create')}}" class="btn btn-primary">Add a project</a>
+        </div>
+    </div>
+
+    @if(session('message'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Congratulations:</strong> {{session('message')}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
 
     <table class="table">
         <thead>
@@ -29,7 +44,7 @@
                     {{$project->repo_name}}
                 </td>
                 <td>
-                    <a href="{{route('admin.projects.show',$project->slug)}}" class="btn btn-primary">Dettagli</a>
+                    <a href="{{route('admin.projects.show',$project->slug)}}" class="btn btn-primary">Details</a>
                 </td>
             </tr>
             @endforeach
