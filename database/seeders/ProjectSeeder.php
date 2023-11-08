@@ -22,6 +22,7 @@ class ProjectSeeder extends Seeder
             $newproject->repo_name = $faker->realText(20);
             $newproject->description = $faker->realText(200);
             $newproject->slug = Str::slug($newproject->title, '-');
+            $newproject->thumb = 'https://picsum.photos/400/500?random=' . $i + 1;
             //dd($faker->image('public/storage/placeholders', 640, 480, 'Posts', false));
             //$path = Storage::getConfig()['root'] . DIRECTORY_SEPARATOR . "placeholders";
             //echo $faker->image($path, 640, 480, 'Posts') . PHP_EOL;
