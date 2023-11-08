@@ -43,7 +43,7 @@
         </div>
     
         <div class="col-md-12">
-            <label for="projectDescription" class="form-label">Descriptiom</label>
+            <label for="projectDescription" class="form-label">Description</label>
             <textarea class="form-control @error('description') is-invalid @enderror" id="projectDescription" name="description" placeholder="example description" value="{{old('description')}}"></textarea>
             @error('description')
               <div class="text-danger">
