@@ -22,8 +22,8 @@
           </div>
           <div class="col-md-6">
             <div class="card-body">
-              <p class="card-text"><strong>Nome repo:</strong>{{$project->repo_name}}</p>
-              <p class="card-text"><strong>Descrizione:</strong>{{$project->repo_name}}</p>
+              <p class="card-text"><strong>Nome repo</strong><br>{{$project->repo_name}}</p>
+              <p class="card-text"><strong>Descrizione</strong><br>{{$project->description}}</p>
             </div>
           </div>
         </div>

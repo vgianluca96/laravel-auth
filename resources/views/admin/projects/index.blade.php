@@ -4,7 +4,7 @@
 
 <div class="container py-4">
     
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex justify-content-between align-items-center py-2">
         <div>
             <h1>
                 All Projects
@@ -16,7 +16,7 @@
     </div>
 
     @if(session('message'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <div class="alert alert-success alert-dismissible fade show my-4" role="alert">
         <strong>Congratulations:</strong> {{session('message')}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
@@ -57,15 +57,15 @@
                             Delete
                         </button>
                           
-                          <div class="modal fade" id="deleteModal-{{$project->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal fade" id="deleteModal-{{$project->id}}" tabindex="-1" aria-labelledby="modalTitle-{{$project->id}}" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Delete <em>{{$project->title}}</em></h1>
+                                  <h1 class="modal-title fs-5" id="modalTitle-{{$project->id}}">Delete <em>{{$project->title}}</em></h1>
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  Are you sure you want to delete this project?
+                                  Delete this project? This action <strong>cannot be undone</strong>.
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
