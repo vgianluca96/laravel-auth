@@ -26,7 +26,7 @@ class UpdateProjectRequest extends FormRequest
             'title' => ['required', Rule::unique('projects')->ignore($this->project), 'max:255'],
             'repo_name' => ['required', Rule::unique('projects')->ignore($this->project), 'max:255'],
             'description' => 'max:255',
-            'thumb' => 'max:255',
+            'thumb' => 'image|max:400',
         ];
     }
 }
