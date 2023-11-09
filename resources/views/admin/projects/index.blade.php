@@ -49,6 +49,7 @@
                 </td>
                 <td>
                     <a href="{{route('admin.projects.show',$project->slug)}}" class="btn btn-primary">Details</a>
+                    <a href="{{route('admin.projects.edit',$project->slug)}}" class="btn btn-secondary">Edit</a>
                 </td>
             </tr>
             @endforeach

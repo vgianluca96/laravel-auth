@@ -24,11 +24,14 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    //Route::resource('projects', ProjectController::class);
+    Route::resource('projects', ProjectController::class);
+    Route::get('/projects/{project:slug}', [ProjectController::class, 'show'])->name('projects.show');
+    Route::get('/projects/{project:slug}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
+    /*
     Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
-    Route::get('/project/{project:slug}', [ProjectController::class, 'show'])->name('projects.show');
     Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
     Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
+     */
 });
 
 
