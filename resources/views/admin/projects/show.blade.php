@@ -12,10 +12,12 @@
     <div class="card">
         <div class="row g-0">
           <div class="col-md-6">
-            @if(str_contains($project['thumb'],'http'))
-            <img src="{{$project->thumb}}" class="img-fluid rounded-start" alt="">
-            @else
-            <img src="{{asset('storage/' . $project->thumb)}}" class="img-fluid rounded-start" alt="">
+            @if($project->thumb)
+              @if(str_contains($project['thumb'],'http'))
+              <img src="{{$project->thumb}}" class="img-fluid rounded-start" alt="">
+              @else
+              <img src="{{asset('storage/' . $project->thumb)}}" class="img-fluid rounded-start" alt="">
+              @endif
             @endif
           </div>
           <div class="col-md-6">

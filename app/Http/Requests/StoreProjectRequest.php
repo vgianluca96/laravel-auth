@@ -22,10 +22,10 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|max:255',
-            'repo_name' => 'max:255',
+            'title' => 'required|unique:projects,title|max:255',
+            'repo_name' => 'required|unique:projects,repo_name|max:255',
             'description' => 'max:255',
-            'thumb' => 'max:255',
+            'thumb' => 'image|max:400',
         ];
     }
 }
