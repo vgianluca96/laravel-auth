@@ -50,8 +50,35 @@
                     {{$project->repo_name}}
                 </td>
                 <td>
-                    <a href="{{route('admin.projects.show',$project->slug)}}" class="btn btn-primary">Details</a>
-                    <a href="{{route('admin.projects.edit',$project->slug)}}" class="btn btn-secondary">Edit</a>
+                    <div class="d-flex">
+                        <a href="{{route('admin.projects.show',$project->slug)}}" class="btn btn-primary">Details</a>
+                        <a href="{{route('admin.projects.edit',$project->slug)}}" class="btn btn-secondary">Edit</a>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$project->id}}">
+                            Delete
+                        </button>
+                          
+                          <div class="modal fade" id="deleteModal-{{$project->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Delete <em>{{$project->title}}</em></h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  Are you sure you want to delete this project?
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <form action="{{route('admin.projects.destroy',$project->id)}}" method="POST" enctype="multipart/form-data">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="btn btn-danger">Delete</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
                 </td>
             </tr>
             @endforeach
