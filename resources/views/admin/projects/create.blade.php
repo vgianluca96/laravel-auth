@@ -34,8 +34,8 @@
     
         <div class="col-md-6">
             <label for="projectRepoName" class="form-label">Repo Name</label>
-            <input type="text" class="form-control @error('repo name') is-invalid @enderror" id="projectRepoName" name="repo name" placeholder="example repo name" value="{{old('repo name')}}">
-            @error('repo name')
+            <input type="text" class="form-control @error('repo_name') is-invalid @enderror" id="projectRepoName" name="repo_name" placeholder="example repo name" value="{{old('repo_name')}}">
+            @error('repo_name')
               <div class="text-danger">
                 {{$message}}
               </div>
@@ -44,7 +44,7 @@
     
         <div class="col-md-12">
             <label for="projectDescription" class="form-label">Description</label>
-            <textarea class="form-control @error('description') is-invalid @enderror" id="projectDescription" name="description" placeholder="example description" value="{{old('description')}}"></textarea>
+            <textarea class="form-control @error('description') is-invalid @enderror" id="projectDescription" name="description" placeholder="example description">{{old('description')}}</textarea>
             @error('description')
               <div class="text-danger">
                 {{$message}}
