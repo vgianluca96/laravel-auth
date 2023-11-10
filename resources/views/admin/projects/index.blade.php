@@ -22,6 +22,10 @@
       </div>
     @endif
 
+    <div class="py-2">
+      {{ $projects->links('pagination::bootstrap-5') }}
+    </div>
+
     <table class="table table-light table-striped">
         <thead>
           <tr>
@@ -94,10 +98,9 @@
                 </td>
             </tr>
             @endforeach
-            {{ $projects->links() }}
-        </tbody>
-      </table>
-
+          </tbody>
+        </table>
+        
 </div>
 
 @endsection
