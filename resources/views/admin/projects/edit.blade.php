@@ -5,7 +5,7 @@
 <div class="container py-4">
 
     <div class="py-2">
-      <h1>Add a new project</h1>
+      <h1>Edit <em>{{$project->title}}</em> project</h1>
     </div>
 
     @if ($errors->any())
@@ -64,7 +64,7 @@
         </div>
 
           <div class="col-12">
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-dark">Update</button>
             <a href="{{route('admin.projects.index')}}" class="btn btn-light">Cancel</a>
           </div>
 

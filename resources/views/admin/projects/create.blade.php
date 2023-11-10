@@ -63,7 +63,7 @@
         </div>
 
           <div class="col-12">
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-dark">Create</button>
             <a href="{{route('admin.projects.index')}}" class="btn btn-light">Cancel</a>
           </div>
 
