@@ -11,7 +11,7 @@
             </h1>
         </div>
         <div>
-            <a href="{{route('admin.projects.create')}}" class="btn btn-primary">Add new project</a>
+            <a href="{{route('admin.projects.create')}}" class="btn btn-secondary">Add new project</a>
         </div>
     </div>
 
@@ -36,7 +36,7 @@
             <tr>
                 <td>
                     @if($project->thumb)
-                        @if(str_contains($project['thumb'],'http'))
+                        @if(str_contains($project->thumb,'http'))
                         <img src="{{$project->thumb}}" alt="" width="100">
                         @else
                         <img src="{{asset('storage/' . $project->thumb)}}" alt="" width="100">
@@ -94,6 +94,7 @@
                 </td>
             </tr>
             @endforeach
+            {{ $projects->links() }}
         </tbody>
       </table>
 

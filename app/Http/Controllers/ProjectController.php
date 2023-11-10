@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
 {
@@ -15,9 +16,10 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        //$projects = Project::all();
+        $projects = DB::table('projects')->simplePaginate(10);
 
-        return view('admin.projects.index', compact('projects'));
+        return view('admin.projects.index', array('projects' => $projects));
     }
 
     /**
