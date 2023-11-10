@@ -24,7 +24,8 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'title' => ['required', Rule::unique('projects')->ignore($this->project), 'max:255'],
-            'repo_name' => ['required', Rule::unique('projects')->ignore($this->project), 'max:255'],
+            'github_link' => ['required', Rule::unique('projects')->ignore($this->project), 'max:255'],
+            'internet_link' => [Rule::unique('projects')->ignore($this->project), 'max:255'],
             'description' => 'max:255',
             'thumb' => 'image|max:400',
         ];

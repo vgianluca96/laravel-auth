@@ -34,14 +34,24 @@
         </div>
     
         <div class="col-md-6">
-            <label for="projectRepoName" class="form-label">Repo Name</label>
-            <input type="text" class="form-control @error('repo_name') is-invalid @enderror" id="projectRepoName" name="repo_name" placeholder="example repo name" value="{{old('repo_name', $project->repo_name)}}">
-            @error('repo_name')
+            <label for="projectGithubLink" class="form-label">Github Link</label>
+            <input type="text" class="form-control @error('github_link') is-invalid @enderror" id="projectGithubLink" name="github_link" placeholder="https://github.com/vgianluca96/folder-name" value="{{old('github_link', $project->github_link)}}">
+            @error('github_link')
               <div class="text-danger">
                 {{$message}}
               </div>
             @enderror
         </div>
+
+        <div class="col-md-6">
+          <label for="projectInternetLink" class="form-label">Internet Link</label>
+          <input type="text" class="form-control @error('internet_link') is-invalid @enderror" id="projectInternetLink" name="internet_link" placeholder="https://project-domain.it" value="{{old('internet_link', $project->internet_link)}}">
+          @error('internet_link')
+            <div class="text-danger">
+              {{$message}}
+            </div>
+          @enderror
+      </div>
     
         <div class="col-md-12">
             <label for="projectDescription" class="form-label">Description</label>
@@ -54,9 +64,9 @@
         </div>
         
         <div class="col-12">
-            <label for="projectThumb" class="form-label">Project preview</label>
-            <input type="file" class="form-control @error('thumb') is-invalid @enderror" id="projectThumb" name="thumb">
-            @error('thumb')
+            <label for="projectPreview" class="form-label">Project preview</label>
+            <input type="file" class="form-control @error('preview') is-invalid @enderror" id="projectPreview" name="preview">
+            @error('preview')
               <div class="text-danger">
                 {{$message}}
               </div>

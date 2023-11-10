@@ -42,9 +42,9 @@ class ProjectController extends Controller
         $slug  = Str::slug($request->all()["title"], '-');
         $data += ['slug' => $slug];
 
-        if ($request->has('thumb')) {
-            $file_path = Storage::put('projects_previews', $request->thumb);
-            $data['thumb'] = $file_path;
+        if ($request->has('preview')) {
+            $file_path = Storage::put('projects_previews', $request->preview);
+            $data['preview'] = $file_path;
         }
 
         Project::create($data);
@@ -79,12 +79,12 @@ class ProjectController extends Controller
         $slug  = Str::slug($request->all()["title"], '-');
         $data += ['slug' => $slug];
 
-        if ($request->has('thumb')) {
-            $file_path = Storage::put('projects_previews', $request->thumb);
-            $data['thumb'] = $file_path;
+        if ($request->has('preview')) {
+            $file_path = Storage::put('projects_previews', $request->preview);
+            $data['preview'] = $file_path;
 
-            if ($project->thumb) {
-                Storage::delete($project->thumb);
+            if ($project->preview) {
+                Storage::delete($project->preview);
             }
         }
 
@@ -99,8 +99,8 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
 
-        if ($project->thumb) {
-            Storage::delete($project->thumb);
+        if ($project->preview) {
+            Storage::delete($project->preview);
         }
 
         $project->delete();

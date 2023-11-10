@@ -29,9 +29,9 @@
     <table class="table table-light table-striped">
         <thead>
           <tr>
-            <th scope="col">Thumb</th>
+            <th scope="col">Preview</th>
             <th scope="col">Title</th>
-            <th scope="col">Repo name</th>
+            <th scope="col">Github</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -39,11 +39,11 @@
             @foreach ($projects as $project)
             <tr>
                 <td>
-                    @if($project->thumb)
-                        @if(str_contains($project->thumb,'http'))
-                        <img src="{{$project->thumb}}" alt="" width="100">
+                    @if($project->preview)
+                        @if(str_contains($project->preview,'http'))
+                        <img src="{{$project->preview}}" alt="" width="100">
                         @else
-                        <img src="{{asset('storage/' . $project->thumb)}}" alt="" width="100">
+                        <img src="{{asset('storage/' . $project->preview)}}" alt="" width="100">
                         @endif
                     @endif
                 </td>
@@ -51,7 +51,9 @@
                     {{$project->title}}
                 </td>
                 <td>
-                    {{$project->repo_name}}
+                  <a href="{{$project->github_link}}" target="_blank">
+                    {{$project->github_link}}
+                  </a>
                 </td>
                 <td>
                     <div class="d-flex">

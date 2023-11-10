@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('repo_name')->nullable();
+            $table->string('github_link');
+            $table->string('internet_link')->nullable();
             $table->string('description')->nullable();
             $table->string('slug');
-            $table->string('thumb')->nullable();
+            $table->string('preview')->nullable();
             $table->timestamps();
         });
     }
